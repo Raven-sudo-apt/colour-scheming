@@ -18,51 +18,51 @@
 @theme {
   --font-sans: "Outfit", system-ui, sans-serif;
 
-  --color-background: #3f5a94;
-  --color-sidebar: #fdf1c4;
+  --color-background: #eaf2f7;
+  --color-sidebar: #dfeaf3;
   --color-surface: #ffffff;
-  --color-primary: #d92d3a;
-  --color-on-primary: #ffffff;
-  --color-secondary: #fdeaa8;
-  --color-accent: #2f9e5f;
-  --color-text: #2b4585;
-  --color-on-background: #fff3c4;
+  --color-primary: #2d5b7c;
+  --color-on-primary: #f6fbff;
+  --color-secondary: #bfd7ea;
+  --color-accent: #d98b4a;
+  --color-text: #1d3557;
+  --color-on-background: #1d3557;
 }
 
 [data-theme="ocean"] {
-  --color-background: #0e4a5c;
-  --color-sidebar: #e0f4f7;
+  --color-background: #eafaf9;
+  --color-sidebar: #d2f1ee;
   --color-surface: #ffffff;
-  --color-primary: #f97316;
-  --color-on-primary: #ffffff;
-  --color-secondary: #bff0f5;
-  --color-accent: #0d9488;
-  --color-text: #0b3a4a;
-  --color-on-background: #e6fbff;
+  --color-primary: #0f4c5c;
+  --color-on-primary: #f4ffff;
+  --color-secondary: #a5ddd8;
+  --color-accent: #f29f5b;
+  --color-text: #123a45;
+  --color-on-background: #123a45;
 }
 
 [data-theme="forest"] {
-  --color-background: #1f4d36;
-  --color-sidebar: #eef5dc;
-  --color-surface: #fbfff5;
-  --color-primary: #c2410c;
-  --color-on-primary: #ffffff;
-  --color-secondary: #dcecb0;
-  --color-accent: #3f8f4a;
-  --color-text: #1d3a2a;
-  --color-on-background: #f1f9dd;
+  --color-background: #edf5eb;
+  --color-sidebar: #dfead9;
+  --color-surface: #ffffff;
+  --color-primary: #2d5d4e;
+  --color-on-primary: #f6fff9;
+  --color-secondary: #c0d7bd;
+  --color-accent: #b5723d;
+  --color-text: #1d352d;
+  --color-on-background: #1d352d;
 }
 
 [data-theme="grape"] {
-  --color-background: #4c2a7a;
-  --color-sidebar: #f3e8ff;
+  --color-background: #f3edf9;
+  --color-sidebar: #e5d9f4;
   --color-surface: #ffffff;
-  --color-primary: #e11d74;
-  --color-on-primary: #ffffff;
-  --color-secondary: #f5d9ff;
-  --color-accent: #7c3aed;
-  --color-text: #3b1a66;
-  --color-on-background: #fbeeff;
+  --color-primary: #5a3d7a;
+  --color-on-primary: #fff8ff;
+  --color-secondary: #d3b9ed;
+  --color-accent: #c97b4c;
+  --color-text: #2f1d46;
+  --color-on-background: #2f1d46;
 }
 
 body {

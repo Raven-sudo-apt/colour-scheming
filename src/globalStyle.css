@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/*
+  THE ONLY PLACE COLORS LIVE. Change a value and every bg-*, text-*,
+  border-* that uses that name updates everywhere. Use #rrggbb hex.
+
+  background     main area behind the cards
+  sidebar        sidebar background
+  surface        cards
+  primary        buttons, active nav, date badges, big numbers
+  on-primary     text/icons sitting on primary
+  secondary      tags / soft highlights (text on it is `text`)
+  accent         icons and small highlights
+  text           text on sidebar and cards
+  on-background  headings sitting directly on background
+*/
+@theme {
+  --font-sans: "Outfit", system-ui, sans-serif;
+
+  --color-background: #3f5a94;
+  --color-sidebar: #fdf1c4;
+  --color-surface: #ffffff;
+  --color-primary: #d92d3a;
+  --color-on-primary: #ffffff;
+  --color-secondary: #fdeaa8;
+  --color-accent: #2f9e5f;
+  --color-text: #2b4585;
+  --color-on-background: #fff3c4;
+}
+
+[data-theme="ocean"] {
+  --color-background: #0e4a5c;
+  --color-sidebar: #e0f4f7;
+  --color-surface: #ffffff;
+  --color-primary: #f97316;
+  --color-on-primary: #ffffff;
+  --color-secondary: #bff0f5;
+  --color-accent: #0d9488;
+  --color-text: #0b3a4a;
+  --color-on-background: #e6fbff;
+}
+
+[data-theme="forest"] {
+  --color-background: #1f4d36;
+  --color-sidebar: #eef5dc;
+  --color-surface: #fbfff5;
+  --color-primary: #c2410c;
+  --color-on-primary: #ffffff;
+  --color-secondary: #dcecb0;
+  --color-accent: #3f8f4a;
+  --color-text: #1d3a2a;
+  --color-on-background: #f1f9dd;
+}
+
+[data-theme="grape"] {
+  --color-background: #4c2a7a;
+  --color-sidebar: #f3e8ff;
+  --color-surface: #ffffff;
+  --color-primary: #e11d74;
+  --color-on-primary: #ffffff;
+  --color-secondary: #f5d9ff;
+  --color-accent: #7c3aed;
+  --color-text: #3b1a66;
+  --color-on-background: #fbeeff;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  font-family: var(--font-sans);
+}

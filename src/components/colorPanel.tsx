@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Palette, X } from 'lucide-react'
 import ColorPicker from './globalColorPicker'
+import ColorInspector, { resetElementEdits } from './colorInspector'
 
 const TOKENS = [
   'background', 'sidebar', 'surface', 'primary', 'on-primary',
@@ -19,13 +20,12 @@ const readColors = (): Colors => {
   ) as Colors
 }
 
-// This panel is dev tooling, so it uses fixed neutral colors on purpose:
-// it stays readable no matter which scheme you're testing.
 export default function ColorPanel() {
   const [open, setOpen] = useState(false)
   const [theme, setTheme] = useState('classic')
   const [colors, setColors] = useState<Colors>(() => readColors())
   const [copied, setCopied] = useState(false)
+  const [editing, setEditing] = useState(true)
 
   useEffect(() => setColors(readColors()), [theme])
 
@@ -48,7 +48,7 @@ export default function ColorPanel() {
   }
 
   return (
-    <div className="fixed right-4 bottom-4 z-50 font-sans">
+    <div data-color-ui className="fixed right-4 bottom-4 z-50 font-sans">
       {open && (
         <div className="mb-3 max-h-[80vh] w-72 overflow-y-auto rounded-2xl bg-white p-4 text-slate-900 shadow-2xl ring-1 ring-slate-200">
           <div className="mb-3 flex items-center justify-between">
@@ -57,6 +57,11 @@ export default function ColorPanel() {
               <X size={18} />
             </button>
           </div>
+
+          <label className="mb-4 flex cursor-pointer items-center justify-between rounded-lg bg-slate-100 px-3 py-2 text-sm">
+            Click an element to recolor it
+            <input type="checkbox" checked={editing} onChange={(e) => setEditing(e.target.checked)} className="size-4 accent-slate-900" />
+          </label>
 
           <div className="mb-4 grid grid-cols-2 gap-2">
             {THEMES.map((t) => (
@@ -92,6 +97,9 @@ export default function ColorPanel() {
           <button onClick={copy} className="mt-4 w-full rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700">
             {copied ? 'Copied' : 'Copy CSS'}
           </button>
+          <button onClick={resetElementEdits} className="mt-2 w-full rounded-lg border border-slate-300 px-4 py-2 text-sm hover:bg-slate-100">
+            Reset single-element edits
+          </button>
         </div>
       )}
 
@@ -101,6 +109,8 @@ export default function ColorPanel() {
       >
         <Palette size={18} /> Colors
       </button>
+
+      <ColorInspector enabled={editing} swatches={[...new Set(Object.values(colors))]} />
     </div>
   )
 }

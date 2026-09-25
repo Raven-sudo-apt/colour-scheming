@@ -9,20 +9,22 @@ type Props = {
   onChange: (hex: string) => void
   label?: string
   swatches?: string[]
-  anchor?: DOMRect | null 
-  onClose?: () => void 
+  anchor?: DOMRect | null
+  onClose?: () => void
   header?: ReactNode
   footer?: ReactNode
 }
-
-const W = 240 
-const H = 440 
+const W = 240
+const H = 440
 const clamp = (n: number, min = 0, max = 1) => Math.min(max, Math.max(min, n))
 
-const place = (r: DOMRect) => ({
-  left: r.left - W - 12 >= 8 ? r.left - W - 12 : Math.min(r.right + 12, window.innerWidth - W - 8),
-  top: Math.max(8, Math.min(r.top - 16, window.innerHeight - H - 8)),
-})
+const place = (r: DOMRect, avoid?: DOMRect | null) => {
+  const block = avoid ?? r
+  return {
+    left: block.left - W - 12 >= 8 ? block.left - W - 12 : Math.min(block.right + 12, window.innerWidth - W - 8),
+    top: Math.max(8, Math.min(r.top - 16, window.innerHeight - H - 8)),
+  }
+}
 
 function parseHex(str: string): RGB | null {
   let h = str.trim().replace(/^#/, '')
@@ -108,9 +110,13 @@ export default function ColorPicker({ value, onChange, label = 'color', swatches
   const hue = useDrag((x) => update({ ...hsv, h: x * 360 }))
 
   const toggle = () => {
-    if (!open) setPos(place(triggerRef.current!.getBoundingClientRect()))
+    if (!open) {
+      const panel = triggerRef.current!.closest('[data-color-ui]')
+      setPos(place(triggerRef.current!.getBoundingClientRect(), panel?.getBoundingClientRect()))
+    }
     setOpen((o) => !o)
   }
+
 
   useEffect(() => {
     if (!open) return

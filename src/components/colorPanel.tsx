@@ -5,7 +5,7 @@ import ColorInspector, { resetElementEdits } from './colorInspector'
 
 const TOKENS = [
   'background', 'sidebar', 'surface', 'primary', 'on-primary',
-  'secondary', 'accent', 'text', 'on-background',
+  'secondary', 'on-secondary' , 'accent', 'text', 'on-background',
 ] as const
 type Token = (typeof TOKENS)[number]
 type Colors = Record<Token, string>
@@ -105,9 +105,9 @@ export default function ColorPanel() {
 
       <button
         onClick={() => setOpen((o) => !o)}
-        className="ml-auto flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-slate-900 shadow-xl ring-1 ring-slate-200 hover:bg-slate-50"
+        className="ml-auto flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xl font-medium text-slate-900 shadow-xl ring-1 ring-slate-200 hover:bg-slate-50"
       >
-        <Palette size={18} /> Colors
+        <Palette size={22} /> Colors
       </button>
 
       <ColorInspector enabled={editing} swatches={[...new Set(Object.values(colors))]} />

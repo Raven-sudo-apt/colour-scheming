@@ -143,7 +143,7 @@ export default function App() {
                         <span className="flex items-center gap-1"><MapPin size={13} className="text-accent" />{e.place}</span>
                       </div>
                     </div>
-                    <span className="bg-secondary rounded-full px-3 py-1 text-xs font-medium">{e.tag}</span>
+                    <span className="bg-secondary rounded-full px-3 py-1 text-xs text-on-secondary font-medium">{e.tag}</span>
                   </article>
                 ))}
               </div>
